@@ -8,25 +8,55 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="scores">
+      <h2>Status</h2>
+      <p>Score: <span id="score">0</span></p>
+      <p>Lives: <span id="lives">3</span></p>
+      <p>User: <span id="gameuser"></span></p>
+    </div>
     <div id="landing-page">
       <div id="game-status">
-        <div>
-          <h2>Status</h2>
-          <p>Score: <span id="score">0</span></p>
-          <p>Lives: <span id="lives">3</span></p>
-        </div>
         <!-- #game-screen is initially hidden using CSS style display: none -->
         <div id="game-screen"></div>
       </div>
 
       <div class="form">
-        <input type="text" required />
+        <input type="text" id="userName" required />
+
         <label for="">Enter Your Name</label>
       </div>
 
       <div class="start-btn">
-        <button class="start">Start Game</button>
+        <input type="button" id="btn1" value="Save Name" />
+        <button class="start-bbtn">Start Game</button>
       </div>
+    </div>
+
+    <div id="second-page">
+      <!-- game screen -->
+      <div id="game-screen"></div>
+      <!-- BOMBS -->
+      <div class="grenades">
+        <div class="bomb1"><img src="./images/bomb.jpeg" alt="bomb1" /></div>
+        <div class="bomb2"><img src="./images/bomb.jpeg" alt="bomb2" /></div>
+        <div class="bomb3"><img src="./images/bomb.jpeg" alt="bomb3" /></div>
+        <div class="bomb4"><img src="./images/bomb.jpeg" alt="bomb4" /></div>
+      </div>
+
+      <!-- MY AIRCRAFT -->
+      <div id="Aircraft">
+        <img id="myaircraft" src="./images/kopter.gif" alt="my aircraft" />
+      </div>
+
+      <!-- SKY -->
+      <!-- <div id="sky"><img src="./images/sky-background.jpg" alt="" /></div> -->
+    </div>
+
+    <div id="game-end">
+      <img src="./images/logo.png" alt="" class="logo-img" />
+      <h1>Game Over</h1>
+      <br />
+      <button id="restart-button">Restart</button>
     </div>
 
     <script type="text/javascript" src="enemies.js"></script>

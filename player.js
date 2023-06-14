@@ -1,62 +1,24 @@
-class Player {
-  constructor(gameScreen, left, top, width, height, imgSrc) {
-    this.gameScreen = gameScreen;
+class player {
+  constructor(gameScreen, left, top, width, height, xAxis, yAxis) {
+    this.airCraft = document.querySelector("#myaircraft");
+    this.button = document.getElementById("start-btn");
+    this.this.gameScreen = gameScreen;
     this.left = left;
     this.top = top;
     this.width = width;
     this.height = height;
-    this.directionX = 0;
-    this.directionY = 0;
-    this.element = document.createElement("img");
-    this.element.src = imgSrc;
-    this.element.style.position = "absolute";
-    // Set up the default element's property values
-    this.element.style.width = `${width}px`;
-    this.element.style.height = `${height}px`;
-    this.element.style.left = `${left}px`;
-    this.element.style.top = `${top}px`;
-
-    this.gameScreen.appendChild(this.element);
+    this.xAxis = xAxis;
+    this.yAxis = yAxis;
+    this.speed = 30;
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
+    // this.directionX = 0;
+    // this.directionY = 0;
   }
 
-  move() {
-    // Update player's car position based on directionX and directionY
-    this.left += this.directionX;
-    this.top += this.directionY;
-
-    // Ensure the player's car stays within the game screen
-    // handles left hand side
-    if (this.left < 10) {
-      this.left = 10;
-    }
-
-    // handles top side
-    if (this.top < 10) {
-      this.top = 10;
-    }
-
-    // handles right hand side
-    if (this.left > this.gameScreen.offsetWidth - this.width - 10) {
-      this.left = this.gameScreen.offsetWidth - this.width - 10;
-    }
-
-    // handles bottom side
-    if (this.top > this.gameScreen.offsetHeight - this.height - 10) {
-      this.top = this.gameScreen.offsetHeight - this.height - 10;
-    }
-
-    // Update the player's car position on the screen
-    this.updatePosition();
-  }
-
-  updatePosition() {
-    this.element.style.left = `${this.left}px`;
-    this.element.style.top = `${this.top}px`;
-  }
-
-  didCollide(obstacle) {
-    const playerRect = this.element.getBoundingClientRect();
-    const obstacleRect = obstacle.element.getBoundingClientRect();
+  didCollide(bomb) {
+    const playerRect = this.grenade.getBoundingClientRect();
+    const obstacleRect = bomb.grenade.getBoundingClientRect();
 
     if (
       playerRect.left < obstacleRect.right &&
